@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Websocket Client</title>
+</head>
+
+<body>
+    <h1>WebSocket Client</h1>
+    <p>使用之前先运行`./../../demo/server/websocket.php`</p>
+    <script>
+        var ws_url = 'ws://192.168.33.12:9504';
+        var websocket = new WebSocket(ws_url);
+        websocket.onopen = function(result) {
+            console.log('👌connect swoole success.');
+            // 发送数据
+            websocket.send('hello swoole server');
+        }
+        websocket.onmessage = function(result) {
+            console.log("😆receive swoole websocket server data: ", result.data);
+        }
+        websocket.onclose = function(result) {
+            console.log('😝Close.');
+        }
+        websocket.onerror = function(result) {
+            console.log(result);
+        }
+    </script>
+</body>
+
+</html>
