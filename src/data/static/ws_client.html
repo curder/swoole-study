@@ -21,7 +21,7 @@
             console.log("😆receive swoole websocket server data: ", result.data);
         }
         websocket.onclose = function(result) {
-            console.log('😝Close.');
+            console.log('😝Server Close.');
         }
         websocket.onerror = function(result) {
             console.log(result);
