@@ -9,7 +9,7 @@ yum makecache
 
 ```
 yum upgrade
-yum install -y gcc wget git autoconf vim pcre-devel gcc-c++ libxml2-*
+yum install -y gcc wget git autoconf vim pcre-devel gcc-c++ net-tools  libxml2-*
 ```
 
 ## 安装PHP
