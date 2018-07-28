@@ -2,8 +2,8 @@
 
 // 连接swoole tcp服务
 $client = new swoole_client(SWOOLE_SOCK_TCP);
-if (!$client->connect('0.0.0.0', 9501)) {
-    die('连接swoole_tcp服务器失败');
+if ($client->connect('0.0.0.0', 9501) === false) {
+    exit('连接swoole_tcp服务器失败');
 }
 
 fwrite(STDOUT, '请输入消息： ');
