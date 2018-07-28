@@ -2,6 +2,12 @@
 
 $http = new swoole_http_server('0.0.0.0', 9503);
 
+// 配置静态文件目录
+$http->set([
+    'enable_static_handler' => true, // 启用静态资源处理
+    'document_root' => './../../data/static', // 设置静态资源默认路径
+]);
+
 $http->on('request', function ($request, $response) {
     // 获取get数据
     $get = $request->get;
