@@ -69,3 +69,9 @@ extension=swoole.so
 
 php -m |grep swoole # 检查swoole是否成功加载
 ```
+
+## 一些命令
+
+```
+ps aft |grep php # 查看进程数量
+```
