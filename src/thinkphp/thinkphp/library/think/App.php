@@ -113,7 +113,6 @@ class App implements \ArrayAccess
         $this->runtimePath = $this->rootPath . 'runtime/';
         $this->routePath   = $this->rootPath . 'route/';
         $this->configPath  = $this->rootPath . 'config/';
-
     }
 
     /**
@@ -307,7 +306,6 @@ class App implements \ArrayAccess
 
             // 执行调度
             $data = $dispatch->run();
-
         } catch (HttpResponseException $exception) {
             $data = $exception->getResponse();
         }
