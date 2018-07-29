@@ -9,7 +9,7 @@ yum makecache
 
 ```
 yum upgrade
-yum install -y gcc wget git autoconf vim pcre-devel gcc-c++ net-tools  libxml2-*
+yum install -y gcc wget git autoconf vim pcre-devel gcc-c++ net-tools psmisc libxml2-*
 ```
 
 ## 安装PHP
@@ -108,4 +108,5 @@ php --ri swoole | grep "async redis client" # 检查是否支持异步redis
 
 ```
 ps aft |grep php # 查看进程数量
+pstree -p process_code # 查看进程树
 ```
