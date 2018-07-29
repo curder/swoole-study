@@ -44,7 +44,40 @@ echo 'alias php="/usr/local/php/bin/php"' >> ~/.bash_profile
 source ~/.bash_profile
 ```
 
+## 安装redis
+
+```
+cd /vagrant/softwares && wget -O redis-4.0.10.tar.gz http://download.redis.io/releases/redis-4.0.10.tar.gz
+
+tar xf redis-4.0.10.tar.gz && cd redis-4.0.10
+
+make && make PREFIX=/usr/local/redis-4.0.10 install
+
+ln -s /usr/local/redis-4.0.10 /usr/local/redis
+
+mkdir -p /usr/local/redis/conf && cp /vagrant/softwares/redis-4.0.10/redis.conf /usr/local/redis/conf/.
+
+sed -i 's/daemonize no/daemonize yes/g' /usr/local/redis/conf/redis.conf # 后台运行Redis
+
+/usr/local/redis/bin/redis-server /usr/local/redis/conf/redis.conf # 启动Redis
+```
+
+
+### 安装hiredis
+
+> 安装hiredis，使swoole支持异步redis
+
+```
+cd /vagrant/softwares && wget -O hiredis-0.13.3.tar.gz https://github.com/redis/hiredis/archive/v0.13.3.tar.gz
+tar xf hiredis-0.13.3.tar.gz && cd hiredis-0.13.3
+
+make -j && sudo make install
+sudo ldconfig
+```
+> 餐考这里： [https://wiki.swoole.com/wiki/page/p-redis.html](https://wiki.swoole.com/wiki/page/p-redis.html)
+
 ## 安装Swoole
+
 
 ### 下载swoole-src源代码
 ```
@@ -55,9 +88,9 @@ cd /vagrant/softwares/ && git clone https://github.com/swoole/swoole-src.git
 ### 编译并安装Swoole
 
 ```
-cd /vagrant/softwares/swoole-src
+cd /vagrant/softwares/swoole-src && make clean
 
-/usr/local/php/bin/phpize && ./configure --with-php-config=/usr/local/php/bin/php-config
+/usr/local/php/bin/phpize && ./configure --with-php-config=/usr/local/php/bin/php-config --enable-async-redis
 
 make && make install
 ```
@@ -68,6 +101,7 @@ make && make install
 extension=swoole.so
 
 php -m |grep swoole # 检查swoole是否成功加载
+php --ri swoole | grep "async redis client" # 检查是否支持异步redis
 ```
 
 ## 一些命令
