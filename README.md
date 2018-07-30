@@ -8,12 +8,13 @@ yum makecache
 ```
 
 ```
-yum upgrade
-yum install -y gcc wget git autoconf vim pcre-devel gcc-c++ net-tools psmisc libxml2-*
+sudo yum upgrade
+sudo yum install -y gcc wget git autoconf vim pcre-devel gcc-c++ net-tools psmisc libxml2-*
 ```
 
 ## 安装PHP
 ```
+mkdir /vargrant/softwares
 cd /vagrant/softwares && wget -O php-7.2.8.tar.gz http://hk2.php.net/get/php-7.2.8.tar.gz/from/this/mirror
 
 tar xf php-7.2.8.tar.gz && cd php-7.2.8
