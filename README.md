@@ -89,7 +89,7 @@ cd /vagrant/softwares/ && git clone https://github.com/swoole/swoole-src.git
 ### 编译并安装Swoole
 
 ```
-cd /vagrant/softwares/swoole-src && make clean
+cd /vagrant/softwares/swoole-src
 
 /usr/local/php/bin/phpize && ./configure --with-php-config=/usr/local/php/bin/php-config --enable-async-redis
 
@@ -99,7 +99,7 @@ make && make install
 ### 配置php.ini
 
 ```
-extension=swoole.so
+extension=swoole # 在文件`/usr/local/php/lib/php.ini`中添加这行
 
 php -m |grep swoole # 检查swoole是否成功加载
 php --ri swoole | grep "async redis client" # 检查是否支持异步redis
