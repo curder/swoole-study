@@ -38,11 +38,10 @@ ln -s /usr/local/php-7.2.8 /usr/local/php
 cp /vagrant/softwares/php-7.2.8/php.ini-production /usr/local/php/lib/php.ini
 ```
 
-### 命令行别名
+### 加入到环境变量
 
 ```
-echo 'alias php="/usr/local/php/bin/php"' >> ~/.bash_profile
-source ~/.bash_profile
+sudo ln -s /usr/local/php/bin/php /usr/local/bin/php
 ```
 
 ## 安装redis
