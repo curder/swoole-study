@@ -19,7 +19,7 @@ cd /vagrant/softwares && wget -O php-7.2.8.tar.gz http://hk2.php.net/get/php-7.2
 
 tar xf php-7.2.8.tar.gz && cd php-7.2.8
 
-./configure --prefix=/usr/local/php-7.2.8 # 编译php
+./configure --prefix=/usr/local/php-7.2.8 --with-openssl # 编译php
 
 make && make install # 安装php
 ```
