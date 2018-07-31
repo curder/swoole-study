@@ -88,8 +88,8 @@ cd /vagrant/softwares/ && git clone https://github.com/swoole/swoole-src.git
 ### 编译并安装Swoole
 
 ```
-echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib' >> ~/.bash_profile
-source ~/.bash_profile
+echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib' >> /etc/bashrc
+source /etc/bashrc
 
 cd /vagrant/softwares/swoole-src
 
